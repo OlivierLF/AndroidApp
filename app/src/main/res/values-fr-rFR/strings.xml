@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">A faire</string>
+    <string name="activity_main_button_print">Démarrer</string>
+    <string name="activity_main_textView_name">Cette application a été créée par OlivierLF</string>
+    <string name="activity_form_add_task_button">Ajouter tâche</string>
+</resources>
