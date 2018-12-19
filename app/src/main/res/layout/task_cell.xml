@@ -8,13 +8,26 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/task"
+        android:id="@+id/task_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
         android:ellipsize="end"
         android:lines="1"
-        android:text="Task"
+        tools:text="@string/activity_form_title_task"
+        android:textSize="18sp"
+        android:textColor="@color/colorAccent"
         android:textAppearance="@style/TextAppearance.AppCompat"></TextView>
+
+    <TextView
+        android:id="@+id/task_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:lines="1"
+        android:text="@string/activity_form_content_task"
+        tools:text="@string/activity_form_content_task"
+        android:textAppearance="@style/TextAppearance.AppCompat"></TextView>
+
+
 
 </LinearLayout>

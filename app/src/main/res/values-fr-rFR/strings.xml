@@ -4,4 +4,9 @@
     <string name="activity_main_button_print">Démarrer</string>
     <string name="activity_main_textView_name">Cette application a été créée par OlivierLF</string>
     <string name="activity_form_add_task_button">Ajouter tâche</string>
+    <string name="activity_list_title">A faire</string>
+    <string name="activity_list_back_button">RETOUR</string>
+    <string name="activity_form_title_task">Titre de la tâche</string>
+    <string name="activity_form_content_task">Contenu</string>
+    <string name="activity_form_see_list_button">Voir liste</string>
 </resources>

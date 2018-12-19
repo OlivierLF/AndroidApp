@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,8 +14,10 @@ import android.widget.Toast;
 
 public class FormActivity extends AppCompatActivity {
 
-    Button submitButton;
-    EditText submitTextField;
+    Button submitTaskButton;
+    Button seeListButton;
+    EditText taskTitle;
+    EditText taskContent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,27 +28,33 @@ public class FormActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        submitButton =  findViewById(R.id.activity_form_button_submit);
-        submitTextField =  findViewById(R.id.activity_form_text_field);
-        final RecyclerView rv = findViewById(R.id.activity_form_todo_list);
-        rv.setLayoutManager(new LinearLayoutManager(this));
-        rv.setAdapter(new TodoListAdapter());
+        submitTaskButton =  findViewById(R.id.activity_form_button_submit);
+        seeListButton = findViewById(R.id.activity_form_see_list_button);
+        taskTitle =  findViewById(R.id.activity_form_text_field_title);
+        taskContent =  findViewById(R.id.activity_form_text_field_content);
 
-        submitButton.setOnClickListener(new View.OnClickListener(){
+        submitTaskButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 saveTask();
-                Intent intent = getIntent();
-                finish();
+                Intent intent = new Intent(FormActivity.this, ListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        seeListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FormActivity.this, ListActivity.class);
                 startActivity(intent);
             }
         });
     }
 
     private void saveTask() {
-        String newTask = submitTextField.getText().toString();
-        if (!newTask.isEmpty()){
-            DataManager.getInstance().addTask(newTask);
+        Pair<String, String> newTaskTitle = new Pair (taskTitle.getText().toString(), taskContent.getText().toString());
+        if (!newTaskTitle.first.isEmpty()){
+            DataManager.getInstance().addTask(newTaskTitle);
         } else {
             Toast.makeText(this, "Enter text", Toast.LENGTH_SHORT).show();
         }

@@ -1,6 +1,7 @@
 package com.example.olivier.androidapp;
 
 import android.support.v7.widget.RecyclerView;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,7 +10,7 @@ import java.util.List;
 
 public class TodoListAdapter extends RecyclerView.Adapter<TodoListViewHolder> {
 
-    private final List<String> tasks = DataManager.getInstance().getTasks();
+    private final List<Pair<String, String>> tasks = DataManager.getInstance().getTasks();
 
     @Override
     public int getItemCount() {
@@ -25,7 +26,7 @@ public class TodoListAdapter extends RecyclerView.Adapter<TodoListViewHolder> {
 
     @Override
     public void onBindViewHolder(TodoListViewHolder holder, int position) {
-        String task = tasks.get(position);
-        holder.display(task);
+        Pair<String, String> pair = tasks.get(position);
+        holder.display(pair);
     }
 }

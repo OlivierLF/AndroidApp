@@ -1,5 +1,7 @@
 package com.example.olivier.androidapp;
 
+import android.util.Pair;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,15 +10,15 @@ public class DataManager {
     private static DataManager INSTANCE;
 
     private String textDisplay;
-    private List<String> tasks;
+    private List<Pair<String, String>> tasks;
 
-    public DataManager(){
+    public DataManager() {
         textDisplay = new String();
         tasks = new ArrayList<>();
     }
 
-    public static DataManager getInstance(){
-        if (INSTANCE == null){
+    public static DataManager getInstance() {
+        if (INSTANCE == null) {
             INSTANCE = new DataManager();
         }
         return INSTANCE;
@@ -30,15 +32,16 @@ public class DataManager {
         this.textDisplay = textDisplay;
     }
 
-    public List<String> getTasks() {
+    public List<Pair<String, String>> getTasks() {
         return tasks;
     }
 
-    public void setTasks(List<String> tasks) {
+    public void setTasks(List<Pair<String, String>> tasks) {
         this.tasks = tasks;
     }
 
-    public void addTask(String task){
+    public void addTask(Pair<String, String> task){
         this.tasks.add(task);
     }
 }
+
