@@ -7,13 +7,14 @@ import java.util.Arrays;
 import java.util.List;
 
 public class DataManager {
+
+    //this instance will be used through the entire application to store data
     private static DataManager INSTANCE;
 
-    private String textDisplay;
     private List<Pair<String, String>> tasks;
 
     public DataManager() {
-        textDisplay = new String();
+        //initialize an empty arrayList in constructor
         tasks = new ArrayList<>();
     }
 
@@ -24,20 +25,8 @@ public class DataManager {
         return INSTANCE;
     }
 
-    public String getTextDisplay() {
-        return textDisplay;
-    }
-
-    public void setTextDisplay(String textDisplay) {
-        this.textDisplay = textDisplay;
-    }
-
     public List<Pair<String, String>> getTasks() {
         return tasks;
-    }
-
-    public void setTasks(List<Pair<String, String>> tasks) {
-        this.tasks = tasks;
     }
 
     public void addTask(Pair<String, String> task){

@@ -3,9 +3,6 @@ package com.example.olivier.androidapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
@@ -28,11 +25,13 @@ public class FormActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        //bind variables to the view
         submitTaskButton =  findViewById(R.id.activity_form_button_submit);
         seeListButton = findViewById(R.id.activity_form_see_list_button);
         taskTitle =  findViewById(R.id.activity_form_text_field_title);
         taskContent =  findViewById(R.id.activity_form_text_field_content);
 
+        //onClickListeneer on the 'add task' button in order to add the task to the list and to start the ListActivity when we click on the button
         submitTaskButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -42,6 +41,7 @@ public class FormActivity extends AppCompatActivity {
             }
         });
 
+        //start the ListActivity onClick
         seeListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,27 +52,14 @@ public class FormActivity extends AppCompatActivity {
     }
 
     private void saveTask() {
+        //initialize the pair that will be added getting the text from the inputs
         Pair<String, String> newTaskTitle = new Pair (taskTitle.getText().toString(), taskContent.getText().toString());
-        if (!newTaskTitle.first.isEmpty()){
+        if (!newTaskTitle.first.isEmpty()){ //check if there is a title for the new task
+            //add the task to the list contained in the dataManager
             DataManager.getInstance().addTask(newTaskTitle);
         } else {
+            //suggest to enter some text when the title is empty
             Toast.makeText(this, "Enter text", Toast.LENGTH_SHORT).show();
         }
     }
-
-
-    /*
-    // this was made to transfer data from one activity to another using the common instance
-    private void saveData() {
-        String name = submitTextField.getText().toString();
-
-        if (!name.isEmpty()){
-            DataManager.getInstance().setTextDisplay(name);
-        } else {
-            Toast.makeText(this, "Veuillez saisir votre nom", Toast.LENGTH_SHORT).show();
-        }
-
-        finish();
-    }
-    */
 }

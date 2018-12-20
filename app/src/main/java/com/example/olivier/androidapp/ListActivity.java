@@ -20,11 +20,15 @@ public class ListActivity extends AppCompatActivity {
     }
 
     private void initView() {
+        //bind the 'goBack' button
         goBackButton =  findViewById(R.id.activity_list_back_button);
+
+        //initialize and bind the recyclerView to the view
         final RecyclerView rv = findViewById(R.id.activity_list_todo_list);
         rv.setLayoutManager(new LinearLayoutManager(this));
         rv.setAdapter(new TodoListAdapter());
 
+        //onClickListener to finish the activity when we click on the 'goBack' button
         goBackButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){

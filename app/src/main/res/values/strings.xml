@@ -1,11 +1,13 @@
 <resources>
     <string name="app_name">Todo List</string>
-    <string name="activity_main_button_print">Start app</string>
-    <string name="activity_main_textView_name">This app is made by OlivierLF</string>
+    <string name="activity_main_button_start">Start app</string>
+    <string name="activity_main_author">This app is made by OlivierLF</string>
+
     <string name="activity_form_add_task_button">Add Task</string>
-    <string name="activity_list_title">Todo</string>
-    <string name="activity_list_back_button">BACK</string>
     <string name="activity_form_title_task">Title task</string>
     <string name="activity_form_content_task">Content</string>
     <string name="activity_form_see_list_button">See List</string>
+    
+    <string name="activity_list_title">Todo</string>
+    <string name="activity_list_back_button">BACK</string>
 </resources>

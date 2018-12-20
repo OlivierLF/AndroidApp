@@ -21,6 +21,7 @@ public class TodoListViewHolder extends RecyclerView.ViewHolder {
         title = itemView.findViewById(R.id.task_title);
         content = itemView.findViewById(R.id.task_content);
 
+        //onClickListener to display an alert window containing the task title and the content of the task
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

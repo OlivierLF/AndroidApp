@@ -5,13 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextView TextViewName;
-    //TextView TestTextView;
-    Button ButtonPrint;
+    Button ButtonStart;
 
 
     @Override
@@ -23,28 +20,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initView() {
-        TextViewName = findViewById(R.id.activity_main_textView_name);
-        //TestTextView = findViewById((R.id.activity_main_test_text));
-        ButtonPrint =  findViewById(R.id.activity_main_button_print);
+        //bind the button to the view
+        ButtonStart =  findViewById(R.id.activity_main_button_start);
 
-        ButtonPrint.setOnClickListener(this);
+        //onClickListener to change activity when we click
+        ButtonStart.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.activity_main_button_print:
+            case R.id.activity_main_button_start:
                 Intent intent = new Intent(this, FormActivity.class);
                 startActivityForResult(intent, 1);
                 break;
         }
-    }
-
-    @Override
-    protected void onResume(){
-        super.onResume();
-        String newField = DataManager.getInstance().getTextDisplay();
-        //TestTextView.setText(newField);
     }
 }
